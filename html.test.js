@@ -2,28 +2,26 @@ const cheerio = require('cheerio')
 const assert = require('assert')
 
 describe('the html', () => {
- let querySelector
- let body
 
   beforeEach(() => {
     html = `<form action="post" id="ticket-purchase">
-  <label for="customer-select">Customer:</label>
-  <select name="customer_id" id="customer-select">
-  <option value="1">Alex</option>
-  <option value="2">Sian</option>
-  <option value="3">Del</option>
-  </select>
+              <label for="customer-select">Customer:</label>
+              <select name="customer_id" id="customer-select">
+                <option value="1">Alex</option>
+                <option value="2">Sian</option>
+                <option value="3">Del</option>
+              </select>
 
-  <label for="form-select">Film:</label>
-  <select name="film_id" id="film-select">
-    <option value="1">It's a Wonderful Life</option>
-    <option value="2">The Grinch</option>
-    <option value="3">Home Alone</option>
-    <option value="4">Home Alone 2</option>
-  </select>
-  <input type="submit">
-</form>`
-  $ = cheerio.load(html)
+              <label for="form-select">Film:</label>
+              <select name="film_id" id="film-select">
+                <option value="1">It's a Wonderful Life</option>
+                <option value="2">The Grinch</option>
+                <option value="3">Home Alone</option>
+                <option value="4">Home Alone 2</option>
+              </select>
+              <input type="submit">
+            </form>`
+    $ = cheerio.load(html)
   });
 
   it('there is a one form in the body of the html', () => {
@@ -83,10 +81,6 @@ describe('the html', () => {
     let allOptions = children.every(child => child.tagName === 'option')
     assert(allOptions)    
   })
-
-  
-
-
 
   it('the value attributes of customer-select options are set from 1 to <number of options>', () => {
     let childrenElements = $('#customer-select').children()
