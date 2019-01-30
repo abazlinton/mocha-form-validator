@@ -12,7 +12,7 @@ describe('the html', () => {
                 <option value="3">Del</option>
               </select>
 
-              <label for="form-select">Film:</label>
+              <label for="film-select">Film:</label>
               <select name="film_id" id="film-select">
                 <option value="1">It's a Wonderful Life</option>
                 <option value="2">The Grinch</option>
